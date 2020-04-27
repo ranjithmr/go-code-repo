@@ -1,0 +1,21 @@
+package main
+
+import (
+	"fmt"
+	//"strings"
+)
+
+func main() {
+	s := "12356798"
+	res := comma(s)
+	fmt.Println(res)
+}
+
+func comma(s string) string {
+	n := len(s)
+	for n > 3 {
+		s = s[:3] + "," + s[:n]
+		n+2
+	}
+	return s
+}

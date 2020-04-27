@@ -1,0 +1,25 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	s1 := "SABUTRA"
+	s2 := "BUTSARA"
+	ans := anagram(s1, s2)
+	if ans == true{
+	fmt.Println("Two strings are Anagrams")
+	} else {
+	fmt.Println("They are different")
+	}
+}
+
+func anagram(s1 string, s2 string)bool {
+	sort.Strings(s1)
+	sort.Strings(s2)
+	if s1 == s2 {
+	return true
+	}
+	return false
+}
