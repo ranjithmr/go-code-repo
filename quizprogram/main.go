@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
+	"time"
 )
 
 func main() {
@@ -45,18 +47,38 @@ func modifier(ss [][]string) []problem {
 }
 
 func quiz(result []problem) int {
+	ansChan := make(chan string)
 	var ans string
 	count := 0
 	for i, p := range result {
+		timer := time.NewTimer(5 * time.Second)
 		fmt.Printf("Question #%d : %s = ", i+1, p.question)
-		fmt.Scanf("%s\n", &ans)
-		if p.answer == ans {
-			fmt.Println("Good job. Next Question.")
-			count++
-		} else {
-			fmt.Println("Common. You can do better.")
+		go func() {
+			fmt.Scanf("%s\n", &ans)
+			ansChan <- ans
+		}()
+
+		select {
+		case <-timer.C:
+			fmt.Println("time out")
+			continue
+		case ans = <-ansChan:
+			if p.answer == ans {
+				if i == len(result)-1 {
+					fmt.Println("End")
+					count++
+				} else {
+					fmt.Println("Good job. Next Question.")
+					count++
+				}
+			} else {
+				if i == len(result)-1 {
+					fmt.Println("End")
+				} else {
+					fmt.Println("Common. You can do better.")
+				}
+			}
 		}
 	}
-
 	return count
 }
