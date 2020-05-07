@@ -1,0 +1,90 @@
+	<!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <title>Ranjith's Web</title>
+        <meta charset="utf-8">
+
+	<!--Style steet
+	 <link rel="stylesheet" type="text/css" href="style.css">-->
+	</head>
+		<style>
+			html{
+			background-color: white;
+			}
+		</style>
+	<body>
+		<style>
+			body {
+		 	margin: 0 auto;
+			width: 960;
+			font-family: arial. helvetica, sans-serif;	 
+			}
+	 	</style>
+	  <header>
+		<style>
+			header {
+			background-color: #c5e8ec;
+			height: 100px;
+			padding-top: 1px;
+			}
+		</style>
+		<ul>
+		<style>
+			ul {
+			padding: 0;
+			}
+		</style>
+		<style>
+			li {	
+			float: left;
+			display: inline;
+			padding-left : 50px;
+			padding-bottom: 10px;
+			font-size: 20px;
+			}
+
+		</style>
+		<li><a href="/"><h2>Home</h2></a></li>
+		<li><a href="/experience"><h2>Tech Journey</h2></a></li>
+	  	<li><a href="/education"><h2>Education</h2></a></li>
+		</ul>
+    	  </header>
+	 
+	<h1 style="text-align: center;">Welcome to my Page</h1>
+	<img src="https://raw.githubusercontent.com/collabnix/gopherlabs/master/img/gopherlabs.gif" alt="gopher" height="200" width="300">
+	<h3>I can Develop</h3>
+	
+	<p class="aligncenter"><img class="marginauto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/1200px-Kubernetes_logo_without_workmark.svg.png" alt="kubernetes" height="120" width="120"></p>
+	<style>
+		.aligncenter {
+			text-align: center;
+			}
+	</style>
+	<style>
+		 .marginauto {
+			vertical-align: middle;
+		}
+	</style>
+	<h3 style="text-align: center;">I can be the Captain</h3>
+	</body>
+	<footer>
+        <style>
+                footer {
+                background-color: #c5e8ec;
+                height: 130px;
+                //padding-bottom: 3px;
+		//left: 0;
+                //bottom: 0;
+                width: 100%;
+                //color: white;
+                text-align: center;
+                display: block;
+                }
+        </style>
+         <p>Feel free to contact Me</p>
+                   <p>Email: ranjithmr.reedy@gmail.com</p>
+		   <p>Mobile: +91-7702513428</p>
+		   <p><a href="https://www.linkedin.com/in/ranjith-reddy-molugu/">LinkedIn</a></p>          
+	   </footer>
+	</html>
+
