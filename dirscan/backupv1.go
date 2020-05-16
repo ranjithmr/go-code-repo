@@ -8,11 +8,8 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"sync"
 	"time"
 )
-
-var wg sync.WaitGroup
 
 func main() {
 	start := time.Now()
@@ -41,11 +38,9 @@ func main() {
 	}
 	// range over the files and passing each file to createhash function to create the hash value for the given file
 	for _, file := range files {
-		wg.Add(1)
-		go createhash(file)
+		createhash(file)
 	}
 	// passing slice of struct to findDuplicates function to find the files with same hash value
-	wg.Wait()
 	findDuplicates(rr)
 	fmt.Println(time.Since(start))
 }
@@ -73,7 +68,6 @@ func createhash(file string) {
 		hash:     myhash,
 	}
 	rr = append(rr, myval)
-	wg.Done()
 }
 
 func findDuplicates(rr []Result) {
