@@ -4,16 +4,18 @@ import (
 	"fmt"
 	"sort"
 	"sync"
+	"time"
 )
 
 func main() {
-	var wg sync.WaitGroup
 	var T int
 	fmt.Scan(&T)
+	var wg sync.WaitGroup
 
 	for i := 0; i < T; i++ {
 		wg.Add(1)
-		go func(a int) {
+		go func() {
+			defer wg.Done()
 			var N int
 			fmt.Scan(&N)
 			teamG := make([]int, N)
@@ -24,21 +26,24 @@ func main() {
 			for i := 0; i < N; i++ {
 				fmt.Scan(&teamOP[i])
 			}
-
+			start := time.Now()
 			sort.Ints(teamG)
+			sort.Ints(teamOP)
 			count := 0
 			for _, v := range teamG {
 				for i, _ := range teamOP {
-					if v > teamOP[i] {
-						count += 1
-						teamOP = append(teamOP[:i], teamOP[(i+1):]...)
+					fmt.Println(teamOP)
+					if v <= teamOP[i] {
+						break
+					} else {
+						count++
+						teamOP = teamOP[(i + 1):]
 						break
 					}
 				}
 			}
-			fmt.Println(count)
-			wg.Done()
-		}(i)
+			fmt.Println(count, time.Since(start))
+		}()
 		wg.Wait()
 	}
 }

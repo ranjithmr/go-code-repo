@@ -1,0 +1,8 @@
+{
+"nagiosusername": "XXXX",
+"password": "XXXXXX",
+"comment":"Enter your comment",
+"starttime": "2020-05-15T11:20",
+"endtime": "2020-05-15T11:24",
+"hostnames": ["hostname1", "hostname2", "hostname3"]
+}
