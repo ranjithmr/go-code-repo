@@ -1,0 +1,3 @@
+All the .go files servers the same purpose but the code was slightly different in each one.
+
+Usage : go run main.go directoryname
